@@ -1,3 +1,19 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class OriginalFractal extends PApplet {
+
 int sizeFactor, triangleSize, limitInt, redMeter, greenMeter, blueMeter, opacity;
 public void setup()
 {
@@ -35,7 +51,7 @@ public void sierpinski(int x, int y, int len)
 	if (len > 40)
 	{
 		
-		// System.out.println("IFIFIFIFIF!");
+		System.out.println("IFIFIFIFIF!");
 		ellipse(x + (len/2), y, len/2, len/2);
 		sierpinski(x + (len/2), y, len/2);
 		ellipse(x + (len/2), y+ (len/2), len/2, len/2);
@@ -58,11 +74,20 @@ public void sierpinski(int x, int y, int len)
 
 	}else
 	{
-		// System.out.println("I'm doing stuff!");
-		// System.out.println("x: "+x);
-		// System.out.println("y: "+y);
-		// System.out.println("len: "+len);
+		System.out.println("I'm doing stuff!");
+		System.out.println("x: "+x);
+		System.out.println("y: "+y);
+		System.out.println("len: "+len);
 		ellipse(x, y, len, len);
 	}
 
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "OriginalFractal" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
